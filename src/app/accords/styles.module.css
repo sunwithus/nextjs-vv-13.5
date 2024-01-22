@@ -1,0 +1,37 @@
+.accords pre {
+  position: relative;
+  text-wrap: wrap;
+}
+
+.accords h1 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.accords sup {
+  vertical-align: super;
+  display: inline-block;
+  width: 0px;
+}
+/* при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
+.accords span + sup {
+  display: inline;
+}
+
+.accords sup:has(+ span) {
+  display: inline;
+}
+/* ##################################### */
+
+.smallertext li {
+  overflow: hidden; /* скрывает часть текста, которая не помещается */
+  text-overflow: ellipsis; /* отображает многоточие в конце текста */
+  white-space: nowrap; /* предотвращает перенос текста на новую строку */
+  border-radius: 0.5rem; /* 8px */
+  padding: 10px 0;
+  margin: 0;
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+  line-height: 0%;
+}
