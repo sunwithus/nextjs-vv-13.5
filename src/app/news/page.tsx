@@ -1,7 +1,7 @@
 import SingleBlog from '@/components/Blog/SingleBlog';
 import Breadcrumb from '@/components/Common/Breadcrumb';
 
-import { getAllPostsWithSlug, getAllPostsNewsWithSlug } from '@/components/Api';
+import { getAllPostsNewsWithSlug } from '@/components/Api';
 
 const posts = await getAllPostsNewsWithSlug();
 
@@ -13,9 +13,9 @@ const Blog = () => {
       <section className="pt-[20px] pb-[20px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
-            {posts.edges.map((blog: any) => (
-              <div key={blog.node.slug} className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-                <SingleBlog blog={blog.node} />
+            {posts.map((blog: any) => (
+              <div key={blog.slug} className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3">
+                <SingleBlog blog={blog} />
               </div>
             ))}
           </div>

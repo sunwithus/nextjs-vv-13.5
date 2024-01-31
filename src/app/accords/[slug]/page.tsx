@@ -27,19 +27,19 @@ export default async function PageDetails({ params }: { params: { slug: string }
   return (
     <>
       <h1>{page.title}</h1>
-      <div key={page.slug}>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
       <br />
-      <VkComments />
+      <div className="mb-8">
+        <VkComments />
+      </div>
     </>
   );
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = await getAllAccordPages();
+  const pages = await getAllAccordPages();
 
-  return posts.map((post: { slug: string }) => ({
-    slug: post.slug,
+  return pages.map((page: { slug: string }) => ({
+    slug: page.slug,
   }));
 }

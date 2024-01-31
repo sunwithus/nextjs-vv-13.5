@@ -15,13 +15,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full bg-gray-100">
-      <body className={`${inter.className} " h-full"`}>
+    <html lang="en" className="bg-gray-100">
+      <body className={`${inter.className}`}>
         <Script src="https://vk.com/js/api/openapi.js?168" />
-        <div className="min-h-full">
+        <div className="min-h-screen flex flex-col">
           <Header />
-          <div>{children}</div>
-          <Footer />
+          <div className="flex-grow">{children}</div>
+          <div className="mt-auto">
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

@@ -70,24 +70,24 @@ export async function getAllPostsWithSlug() {
 }
 
 export async function getAllPostsNewsWithSlug() {
-  const data = await fetchApiPOST(`
+  const query = `
   {
     posts(first: 1000, where: {tag: "news"}) {
-      edges {
-        node {
+      nodes {
           slug
           title
           content
           date
         }
       }
-    }
   }
-  `);
-  return data?.posts;
+  `;
+  const data = await fetchApiPOST(query);
+  return data.posts.nodes;
 }
 
 export async function getAllPostsFilmsWithSlug() {
+  /* переделать, убрать узел edges, как в предыдущем запросе */
   const data = await fetchApiPOST(`
   {
     posts(first: 1000, where: {tag: "film"}) {

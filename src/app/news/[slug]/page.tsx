@@ -1,49 +1,49 @@
 import { fetchApiPOST, getAllPostsNewsWithSlug } from '@/components/Api';
+/*
 
-async function getPost(params: { slug: string }) {
-  const query = `
-  query getPostBySlug($slug: String) {
-    page(slug: $slug) {
-      title,
-      content
-    } 
+{ //correct
+  post(id: "s-novyim-godom", idType: SLUG) {
+    title
+    uri
   }
-  
-  `;
+}
 
-  /*
-  query GetPostByUri($uri: ID!) {
-    post(id: $uri, idType: URI) {
+ query getPostBySlug($slug: String) {
+    post(id: $slug, idType: SLUG) {
       title
       content
-      
     }
   }
 */
 
+async function getPost(params: { slug: string }) {
+  const query = `
+  {
+    post(id: "s-novyim-godom", idType: SLUG) {
+      title
+      content
+    }
+  }
+  
+  `;
+
   const variables = { slug: params.slug };
-  console.log('variables: ' + variables);
+  console.log('variables + params === ' + variables + '  ' + params);
   const responseBody = await fetchApiPOST(query, variables);
-  console.log('=======================================');
-  console.log('responseBody: ' + responseBody);
-  console.log('=======================================');
-  if (responseBody && responseBody.data) {
-    return responseBody;
+  if (responseBody && responseBody.post) {
+    return responseBody.post;
   } else {
-    throw new Error('Failed to fetch the page');
+    throw new Error('Failed to fetch the post');
   }
 }
 
-export default async function PageDetails({ params }: { params: { slug: string } }) {
-  const page = await getPost(params);
-  console.log(page);
+export default async function PostDetails({ params }: { params: { slug: string } }) {
+  const post = await getPost(params);
+
   return (
     <>
-      <h1>deddddddddddddddddddddd</h1>
-      {/*<h1>{page.title}</h1>
-      <div key={page.slug}>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-  </div>*/}
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </>
   );
 }
@@ -51,7 +51,7 @@ export default async function PageDetails({ params }: { params: { slug: string }
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getAllPostsNewsWithSlug();
 
-  return posts.edges.map((post: { slug: string }) => ({
+  return posts.map((post: { slug: string }) => ({
     slug: post.slug,
   }));
 }
