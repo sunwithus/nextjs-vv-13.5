@@ -12,6 +12,8 @@ async function getPage(params: { slug: string }) {
     }
   `;
   const variables = { slug: params.slug };
+
+  console.log('variables + params === ' + variables.slug + '  ' + params);
   const responseBody = await fetchApiPOST(query, variables);
   if (responseBody && responseBody.page) {
     return responseBody.page;
