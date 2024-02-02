@@ -85,21 +85,19 @@ export async function getAllPostsNewsWithSlug() {
   const data = await fetchApiPOST(query);
   return data.posts.nodes;
 }
-
+/** posts(first: 1000, where: {tag: "film"})  */
 export async function getAllPostsFilmsWithSlug() {
-  /* переделать, убрать узел edges, как в предыдущем запросе */
-  const data = await fetchApiPOST(`
+  const query = `
   {
     posts(first: 1000, where: {tag: "film"}) {
-      edges {
-        node {
+      nodes {
           slug
           title
           content
         }
       }
-    }
   }
-  `);
-  return data?.posts;
+  `;
+  const data = await fetchApiGET(query);
+  return data.posts.nodes;
 }
