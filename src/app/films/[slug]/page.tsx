@@ -1,5 +1,4 @@
-import { fetchApiPOST, getAllPostsNewsWithSlug } from '@/components/Api';
-/*{post(id: "s-novyim-godom", idType: SLUG) {title uri}} */
+import { fetchApiPOST, getAllPostsFilmsWithSlug } from '@/components/Api';
 
 async function getPost(params: { slug: string }) {
   const query = `
@@ -13,7 +12,6 @@ async function getPost(params: { slug: string }) {
   `;
 
   const variables = { slug: params.slug };
-  console.log('variables + params === ' + variables.slug + '  ' + params);
   const responseBody = await fetchApiPOST(query, variables);
   if (responseBody && responseBody.post) {
     return responseBody.post;
@@ -34,7 +32,7 @@ export default async function PostDetails({ params }: { params: { slug: string }
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = await getAllPostsNewsWithSlug();
+  const posts = await getAllPostsFilmsWithSlug();
 
   return posts.map((post: { slug: string }) => ({
     slug: post.slug,

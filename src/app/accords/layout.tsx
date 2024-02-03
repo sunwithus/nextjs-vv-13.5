@@ -21,4 +21,3 @@ export default function AccordsLayout({ children }: PropsWithChildren<unknown>) 
     </>
   );
 }
-/*max-w-sm */

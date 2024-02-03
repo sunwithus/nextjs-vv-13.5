@@ -10,7 +10,7 @@ export default function NewsLayout({ children }: PropsWithChildren<unknown>) {
         </div>
         <div className="pl-4 min-w-52 w-52 mx-auto">
           <VKontakteWidget />
-        </div>
+  </div>
       </div>
     </>
   );

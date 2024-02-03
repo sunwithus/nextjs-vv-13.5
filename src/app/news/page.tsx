@@ -6,6 +6,7 @@ import { getAllPostsNewsWithSlug } from '@/components/Api';
 const posts = await getAllPostsNewsWithSlug();
 
 const Blog = () => {
+  const link='news';
   return (
     <>
       <Breadcrumb pageName="Новости" description="Анонсы предстоящих мероприятий, связанных с творчеством В.С.&nbsp;Высоцкого, произведения, посвященные ему. Страница, где поклонники и знатоки творчества могут найти интересные материалы." />
@@ -15,7 +16,7 @@ const Blog = () => {
           <div className="-mx-4 flex flex-wrap justify-center">
             {posts.map((blog: any) => (
               <div key={blog.slug} className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-                <SingleBlog blog={blog} />
+                <SingleBlog blog={blog} link={link}  />
               </div>
             ))}
           </div>

@@ -1,19 +1,16 @@
 import { fetchApiPOST, getAllPostsNewsWithSlug } from '@/components/Api';
-/*{post(id: "s-novyim-godom", idType: SLUG) {title uri}} */
 
 async function getPost(params: { slug: string }) {
   const query = `
   query getPostBySlug($slug: ID!) {
     post(id: $slug, idType: SLUG) {
       title
-      content
-      
+      content 
     }
   } 
   `;
 
   const variables = { slug: params.slug };
-  console.log('variables + params === ' + variables.slug + '  ' + params);
   const responseBody = await fetchApiPOST(query, variables);
   if (responseBody && responseBody.post) {
     return responseBody.post;
