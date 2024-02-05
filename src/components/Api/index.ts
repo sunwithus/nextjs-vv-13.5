@@ -39,12 +39,10 @@ export async function fetchApiGET(query: string = '', variables: Record<string, 
 export async function getAllAccordPages() {
   const query = `
   {
-    pages(first: 5000, where: { parentIn: "cG9zdDo2", orderby: { field: TITLE, order: ASC } }) {
+    pages(first: 1000, where: { parentIn: "cG9zdDo2", orderby: { field: TITLE, order: ASC } }) {
       nodes {
         title
         slug
-        content
-        
       }
     }
   }
