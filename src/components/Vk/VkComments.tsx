@@ -16,6 +16,7 @@ const VkComments = () => {
   return (
     <>
       <div id="vk_like"></div>
+      <br />
       <div id="vk_comments"></div>
     </>
   );

@@ -1,0 +1,16 @@
+RewriteEngine on
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}\.html -f
+# RewriteRule ^(.*)$ $1.html
+
+# Rewrite /foo to /foo.html if it exists
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+RewriteRule !\.\w{2,4}$ %{REQUEST_URI}.html [L]
+
+DirectorySlash Off
+
+# Ensure that MutliViews is disabled
+Options -MultiViews
+
+# Disable directory listings
+Options -Indexes
