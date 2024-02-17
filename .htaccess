@@ -1,16 +1,19 @@
-RewriteEngine on
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_FILENAME}\.html -f
-# RewriteRule ^(.*)$ $1.html
+RewriteEngine On
 
-# Rewrite /foo to /foo.html if it exists
+# Убираем слэш в конце адреса URL, если существует файл с таким же именем
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)/$ /$1.html [L]
+
+# Перенаправление /foo на /foo.html, если файл существует
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
-RewriteRule !\.\w{2,4}$ %{REQUEST_URI}.html [L]
+RewriteRule ^(.*)$ $1.html [L]
 
+# Отключение автоматического добавления слэша к директориям в URL
 DirectorySlash Off
 
-# Ensure that MutliViews is disabled
+# Отключение функции MultiViews
 Options -MultiViews
 
-# Disable directory listings
+# Отключение просмотра содержимого директории
 Options -Indexes
