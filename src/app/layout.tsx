@@ -1,19 +1,23 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Script from 'next/script';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Script from "next/script";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Высоцкий // В каждом окне Советского Союза',
-  description: 'Аккорды к песням Высоцкого',
+  title: "Высоцкий // В каждом окне Советского Союза",
+  description: "Аккорды к песням Высоцкого",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className="bg-gray-100">
       <body className={`${inter.className}`}>
@@ -30,15 +34,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   );
-}
-{
-  /**
- 
-      <div className="max-w-7xl m-auto">
-        <div className="flex min-w-full px-6 bg-white border border-gray-400 rounded-lg shadow dark:bg-gray-800">
-          <div className={`w-full min-w-96 pt-6 pb-6 pl-8 font-normal text-gray-700 dark:text-gray-400`}>{children}</div>
-        </div>
-      </div>
-  
- */
 }
