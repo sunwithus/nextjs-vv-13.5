@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-gray-100">
       <body className={`${inter.className}`}>
-        <Script src="https://vk.com/js/api/openapi.js?168" />
+        <Script src="https://vk.com/js/api/openapi.js?169" />
         <div className="min-h-screen flex flex-col">
           <div>
             <Header />

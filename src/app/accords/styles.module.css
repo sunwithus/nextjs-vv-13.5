@@ -1,3 +1,7 @@
+.accords iframe {
+  max-width: 100%;
+}
+
 .accords pre {
   position: relative;
   text-wrap: wrap;
@@ -13,6 +17,7 @@
   vertical-align: super;
   display: inline-block;
   width: 0px;
+  text-wrap: nowrap;
 }
 /* при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
 .accords span + sup {
