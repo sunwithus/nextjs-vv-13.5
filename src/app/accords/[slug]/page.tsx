@@ -1,6 +1,14 @@
-import { fetchApiPOST, getAllAccordPages } from "@/components/Api";
+import type { Metadata } from 'next';
+import { fetchApiPOST, getAllAccordPages } from '@/components/Api';
 
-import VkComments from "@/components/Vk/VkComments";
+import VkComments from '@/components/Vk/VkComments';
+
+/*
+https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+export const metadata: Metadata = {
+  title: '321Высоцкий // В каждом окне Советского Союза',
+  description: '123Аккорды к песням Высоцкого',
+};*/
 
 async function getPage(params: { slug: string }) {
   const query = `
@@ -17,7 +25,7 @@ async function getPage(params: { slug: string }) {
   if (responseBody && responseBody.page) {
     return responseBody.page;
   } else {
-    throw new Error("Failed to fetch the page");
+    throw new Error('Failed to fetch the page');
   }
 }
 
@@ -33,16 +41,9 @@ async function getPage(params: { slug: string }) {
 });* @returns 
  */
 
-export default async function PageDetails({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function PageDetails({ params }: { params: { slug: string } }) {
   const page = await getPage(params);
-  const content = page.content.replace(
-    /<\/sup> <sup>/g,
-    "</sup><span>&nbsp;</span><sup>"
-  ); /*при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
+  const content = page.content.replace(/<\/sup> <sup>/g, '</sup><span>&nbsp;</span><sup>'); /*при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
 
   return (
     <>
