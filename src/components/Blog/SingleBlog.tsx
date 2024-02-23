@@ -11,7 +11,7 @@ type Blog = {
 const SingleBlog = ({ blog, link }: { blog: Blog; link: string }) => {
   /*  image, paragraph, author, tags, publishDate } */
   const { title, content, slug } = blog;
-  console.log(link);
+  //console.log(link);
   //const formattedDate = date.toLocaleDateString();
   //const formattedDate = new Date(Date.parse(date)).toLocaleDateString();
   return (
