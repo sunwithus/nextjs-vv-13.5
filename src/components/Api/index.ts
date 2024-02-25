@@ -52,7 +52,7 @@ export async function getAllAccordPages() {
 }
 
 export async function getAllPostsWithSlug() {
-  const data = await fetchApiPOST(`
+  const data = await fetchApiGET(`
     {
       posts(first: 1000) {
         edges {
