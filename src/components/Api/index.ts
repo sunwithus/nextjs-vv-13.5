@@ -10,6 +10,7 @@ export async function fetchApiPOST(query: string = '', variables: Record<string,
       query,
       variables,
     }),
+    cache: 'no-store',
   });
 
   const json = await res.json();
@@ -26,6 +27,7 @@ export async function fetchApiGET(query: string = '', variables: Record<string, 
     headers: {
       'Content-Type': 'application/json',
     },
+    cache: 'no-store',
   });
 
   const json = await res.json();
