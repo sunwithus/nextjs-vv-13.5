@@ -1,39 +1,45 @@
 const API_URL = process.env.WORDPRESS_API_URL;
 
-export async function fetchApiPOST(query: string = '', variables: Record<string, any> = {}) {
-  const headers: HeadersInit = { 'Content-Type': 'application/json' };
+export async function fetchApiPOST(
+  query: string = "",
+  variables: Record<string, any> = {}
+) {
+  const headers: HeadersInit = { "Content-Type": "application/json" };
 
   const res = await fetch(API_URL!, {
     headers,
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({
       query,
       variables,
     }),
-    cache: 'no-store',
+    cache: "no-store",
   });
 
   const json = await res.json();
   if (json.errors) {
     console.error(json.errors);
-    throw new Error('Failed to fetch API');
+    throw new Error("Failed to fetch API");
   }
   return json.data;
 }
 
-export async function fetchApiGET(query: string = '', variables: Record<string, any> = {}) {
+export async function fetchApiGET(
+  query: string = "",
+  variables: Record<string, any> = {}
+) {
   const res = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    cache: 'no-store',
+    cache: "no-store",
   });
 
   const json = await res.json();
   if (!res.ok) {
     console.error(json.errors);
-    throw new Error('Failed to fetch API');
+    throw new Error("Failed to fetch API");
   }
   return json.data;
 }
@@ -77,7 +83,6 @@ export async function getAllPostsNewsWithSlug() {
           slug
           title
           content
-          date
         }
       }
   }

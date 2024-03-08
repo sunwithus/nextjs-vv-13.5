@@ -1,4 +1,10 @@
 import type { PropsWithChildren } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Высоцкий // Биография",
+  description: "Биография В.С. Высоцкого",
+};
 
 export default function NewsLayout({ children }: PropsWithChildren<unknown>) {
   return (
