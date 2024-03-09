@@ -32,7 +32,7 @@ export default async function Biography() {
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
         </div>
-        <div className="w-56 mx-auto">
+        <div className="w-56 mx-auto lg:mx-0">
           <div className="w-52">
             <VKontakteWidget />
             <Hosting />

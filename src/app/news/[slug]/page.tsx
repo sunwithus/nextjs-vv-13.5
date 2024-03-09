@@ -1,4 +1,4 @@
-import { fetchApiPOST, getAllPostsNewsWithSlug } from '@/components/Api';
+import { fetchApiPOST, getAllPostsNewsWithSlug } from "@/components/Api";
 
 async function getPost(params: { slug: string }) {
   const query = `
@@ -15,11 +15,15 @@ async function getPost(params: { slug: string }) {
   if (responseBody && responseBody.post) {
     return responseBody.post;
   } else {
-    throw new Error('Failed to fetch the post');
+    throw new Error("Failed to fetch the post");
   }
 }
 
-export default async function PostDetails({ params }: { params: { slug: string } }) {
+export default async function PostDetails({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = await getPost(params);
 
   return (

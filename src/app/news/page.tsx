@@ -13,7 +13,6 @@ const Blog = () => {
         pageName="Новости"
         description="Анонсы предстоящих мероприятий, связанных с творчеством В.С.&nbsp;Высоцкого, произведения, посвященные ему. Страница, где поклонники и знатоки творчества могут найти интересные материалы."
       />
-
       <section className="pt-[20px] pb-[20px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">

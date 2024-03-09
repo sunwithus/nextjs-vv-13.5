@@ -9,7 +9,7 @@ export default function NewsLayout({ children }: PropsWithChildren<unknown>) {
         <div className=" lg:ml-4">
           <article className="prose lg:prose-lg">{children}</article>
         </div>
-        <div className="w-56 mx-auto">
+        <div className="w-56 mx-auto lg:mx-0">
           <div className="w-52">
             <VKontakteWidget />
             <Hosting />

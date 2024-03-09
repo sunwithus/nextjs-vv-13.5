@@ -20,8 +20,6 @@ export default function AccordsLayout({
   return (
     <>
       <div className="pt-12 flex flex-col lg:flex-row px-6 bg-white lg:border border-gray-400 lg:rounded-lg shadow dark:bg-gray-800 dark:text-gray-400">
-        {/** sm:block hidden  */}
-
         {/* client component */}
         <NavSmallScreen>
           <NavLinks /> {/* server component */}
