@@ -1,7 +1,7 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import { fetchApiPOST, getAllAccordPages } from "@/components/Api";
+import type { Metadata, ResolvingMetadata } from 'next';
+import { fetchApiPOST, getAllAccordPages } from '@/components/Api';
 
-import VkComments from "@/components/Vk/VkComments";
+import VkComments from '@/components/Vk/VkComments';
 
 /*
 https://nextjs.org/docs/app/building-your-application/optimizing/metadata
@@ -16,16 +16,13 @@ type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   // fetch data
   const page = await getPage(params);
 
   return {
-    title: page.title + " // Аккорды",
-    description: "Аккорды к песне " + page.title,
+    title: page.title + ' // Аккорды',
+    description: 'Аккорды к песне ' + page.title,
   };
 }
 
@@ -44,27 +41,20 @@ async function getPage(params: { slug: string }) {
   if (responseBody && responseBody.page) {
     return responseBody.page;
   } else {
-    throw new Error("Failed to fetch the page");
+    throw new Error('Failed to fetch the page');
   }
 }
 
-export default async function PageDetails({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function PageDetails({ params }: { params: { slug: string } }) {
   const page = await getPage(params);
-  const content = page.content.replace(
-    /<\/sup> <sup>/g,
-    "</sup><span>&nbsp;</span><sup>"
-  ); /*при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
+  const content = page.content.replace(/<\/sup> <sup>/g, '</sup><span>&nbsp;</span><sup>'); /*при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
 
   return (
     <>
       <h1>{page.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <br />
-      <div className="mb-8">
+      <div className="mb-8 overflow-hidden">
         <VkComments />
       </div>
     </>
