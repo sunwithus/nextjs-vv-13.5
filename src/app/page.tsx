@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-6 pt-16 pb-16 min-h-full">
+    <main className="flex flex-col items-center justify-between p-6 pt-16 lg:pb-16 min-h-full">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="m-5 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">На сайте представленны аккорды к песням и новости о Владимире Семеновиче Высоцком, вы сможете найти увлекательные и информативные материалы об этом выдающемся артисте. Здесь вы сможете окунуться в его музыкальный мир, узнать интересные факты из его жизни и карьеры, а также быть в курсе последних новостей и событий, связанных с ним. Анализ его песен, тексты и переводы его композиций, обзоры его фильмов и театральных постановок, а также интервью с людьми, работавшими с ним и знающими его лично.</p>
       </div>

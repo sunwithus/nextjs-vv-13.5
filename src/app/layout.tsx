@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="bg-gray-100">
       <body className={`${inter.className}`}>
         <Script src="https://vk.com/js/api/openapi.js?169" />
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col lg:h-screen">
           <Header />
           <div className="max-w-7xl lg:m-auto xl:w-[1280px] ">{children}</div>
           <Footer />

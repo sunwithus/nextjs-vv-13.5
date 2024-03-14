@@ -27,7 +27,7 @@ export default async function NavLinks() {
 
             {data.map((link: Page) => (
               <Link key={link.slug} href={`/accords/${link.slug}`}>
-                <li className="dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                <li className="hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-gray-300">
                   <div>{link.title}</div>
                 </li>
               </Link>

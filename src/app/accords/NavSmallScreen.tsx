@@ -7,7 +7,7 @@ const NavSmallScreen = ({ children }: { children: React.ReactNode }) => {
   const [toggled, setToggled] = useState(false);
   return (
     <>
-      <div className="md:block hidden">{children}</div>
+      <div className="sm:block hidden">{children}</div>
       <div className="sm:hidden flex h-full">
         <Sidebar width="320px" onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all">
           <Menu onClick={() => setToggled(!toggled)}>{toggled ? children : ''}</Menu>

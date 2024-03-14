@@ -15,7 +15,7 @@ export async function fetchApiPOST(query: string = '', variables: Record<string,
       variables,
     }),
     //next: { revalidate: 3600 },
-    //cache: "no-store",
+    //cache: 'no-store', // only one should be specified
   });
   // Получаем данные из ответа в формате JSON
   const json = await res.json();
@@ -36,7 +36,7 @@ export async function fetchApiGET(
       'Content-Type': 'application/json',
     },
     //next: { revalidate: 3600 },
-    //cache: "no-store",
+    //cache: 'no-store',
   });
 
   const json = await res.json();
