@@ -23,9 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="bg-gray-100">
       <body className={`${inter.className}`}>
         <Script src="https://vk.com/js/api/openapi.js?169" />
-        <div className="flex flex-col">
+        <div className="flex flex-col h-screen">
           <Header />
-          <div className="max-w-7xl lg:m-auto xl:w-[1280px]">{children}</div>
+          <div className="max-w-7xl lg:m-auto xl:w-[1280px] ">{children}</div>
           <Footer />
         </div>
       </body>

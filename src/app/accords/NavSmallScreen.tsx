@@ -7,11 +7,12 @@ const NavSmallScreen = ({ children }: { children: React.ReactNode }) => {
   const [toggled, setToggled] = useState(false);
   return (
     <>
-      <div className="sm:hidden sm:invisible flex h-full">
+      <div className="md:block hidden">{children}</div>
+      <div className="sm:hidden flex h-full">
         <Sidebar width="320px" onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all">
-          <Menu onClick={() => setToggled(!toggled)}>{children}</Menu>
+          <Menu onClick={() => setToggled(!toggled)}>{toggled ? children : ''}</Menu>
         </Sidebar>
-        <div className="z-50 w-full -ml-2 p-3 bg-gray-300 fixed top-16">
+        <div className="z-10 w-full -ml-2 p-3 bg-gray-300 fixed top-16">
           <button className="text-xl h-full w-full block " onClick={() => setToggled(!toggled)}>
             <div>&equiv;</div>
           </button>

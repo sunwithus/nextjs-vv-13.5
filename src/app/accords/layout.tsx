@@ -30,6 +30,7 @@ export default function AccordsLayout({ children }: PropsWithChildren<unknown>) 
           <div className="w-52">
             <VKontakteWidget />
             <Hosting />
+            <br />
           </div>
         </div>
       </div>
