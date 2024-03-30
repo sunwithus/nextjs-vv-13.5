@@ -1,31 +1,20 @@
-"use client";
+'use client';
 
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { useState } from "react";
+import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { useState } from 'react';
 
 const NavSmallScreen = ({ children }: { children: React.ReactNode }) => {
   const [toggled, setToggled] = useState(false);
-
   return (
     <>
-      <div className="hidden lg:block">{children}</div>
-      <div className="lg:hidden flex h-full">
-        <Sidebar
-          width="320px"
-          onBackdropClick={() => setToggled(false)}
-          toggled={toggled}
-          breakPoint="all"
-        >
-          <Menu onClick={() => setToggled(!toggled)} className="h-0">
-            {children}
-          </Menu>
+      <div className="sm:block hidden">{children}</div>
+      <div className="sm:hidden flex h-full">
+        <Sidebar width="320px" onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all">
+          <Menu onClick={() => setToggled(!toggled)}>{toggled ? children : ''}</Menu>
         </Sidebar>
-        <div className="h-full mt-4 -ml-6 p-4 bg-gray-300 block fixed">
-          <button
-            className="sb-button h-full lg:hidden"
-            onClick={() => setToggled(!toggled)}
-          >
-            {" => "}
+        <div className="z-10 w-full -ml-2 p-3 bg-gray-300 fixed top-16">
+          <button className="text-xl h-full w-full block " onClick={() => setToggled(!toggled)}>
+            <div>&equiv;</div>
           </button>
         </div>
       </div>
