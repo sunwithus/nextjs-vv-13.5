@@ -18,7 +18,7 @@ const MyChord = () => {
 const ChordList = () => {
   const chords = guitarData.chords;
   const allChords = Object.keys(chords);
-  /* //
+  /* //////
   const object1 = {
   a: 'somestring',
   b: 42,
