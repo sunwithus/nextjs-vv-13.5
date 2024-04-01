@@ -10,8 +10,8 @@ const ChordList = () => {
   const allChords = Object.keys(chords);
 
   return (
-    <div className="flex flex-row flex-wrap flex-1">
-      {allChords.map((chordName) =>
+    <div className="flex flex-row flex-wrap flex-1 w-48">
+      {allChords.map((chordName) => /* */
         chords[chordName].map((chord, index) => (
           <>
             <div className="m-auto">
