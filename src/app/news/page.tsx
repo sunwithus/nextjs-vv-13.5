@@ -24,23 +24,5 @@ const Blog = () => {
     </>
   );
 };
-/*
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = await getAllPostsNewsWithSlug();
 
-  return posts.map((post: { slug: string }) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function getStaticProps() {
-  const data = await fetchApiPOST('your_query_here');
-  
-  return {
-    props: {
-      data
-    }
-  };
-}
-*/
 export default Blog;

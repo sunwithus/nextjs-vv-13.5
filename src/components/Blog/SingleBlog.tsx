@@ -20,7 +20,7 @@ const SingleBlog = ({ blog, link }: { blog: Blog; link: string }) => {
         className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one dark:bg-dark"
         data-wow-delay=".1s"
       >
-        <div className="p-2 sm:p-8 md:py-4 md:px-6 ">
+        <div className="p-2 sm:p-8 md:py-4 md:px-6 dark:bg-gray-800">
           <Link href={`/${link}/${slug}`}>
             <h3 className=" h-32 block border-r overflow-hidden">
               <div className=" block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl">

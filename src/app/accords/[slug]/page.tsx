@@ -55,6 +55,7 @@ export default async function PageDetails({ params }: { params: { slug: string }
       <div dangerouslySetInnerHTML={{ __html: content }} />
       <br />
       <div className="mb-8 overflow-hidden">
+        {/** добавить layout, чтоб ВК комментарии были во всю длинну, сейчас .accords iframe {max-width: 100%;} */}
         <VkComments />
       </div>
     </>

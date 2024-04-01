@@ -19,6 +19,7 @@ const Header = () => {
     { name: "Новости", href: "/news", current: false },
     { name: "Биография", href: "/biography", current: false },
     { name: "Фильмы", href: "/films", current: false },
+    { name: "БД аккордов", href: "/db", current: false },
   ]);
 
   // Функция для обновления текущего элемента в навигации

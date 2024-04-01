@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="bg-gray-100">
+    <html lang="en" className="dark:bg-black">
       <body className={`${inter.className}`}>
         <Script src="https://vk.com/js/api/openapi.js?169" />
         <div className="flex flex-col lg:h-screen">

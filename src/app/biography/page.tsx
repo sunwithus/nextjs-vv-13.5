@@ -28,7 +28,7 @@ export default async function Biography() {
       <div className="mt-16 lg:flex lg:flex-row flex-col justify-between">
         <div className=" lg:ml-4">
           <div
-            className="prose lg:prose-lg"
+            className="prose lg:prose-lg dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
         </div>
