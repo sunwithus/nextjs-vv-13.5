@@ -1,0 +1,38 @@
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .litegrid {
+    grid-template-columns: repeat(16, auto);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .litegrid {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+
+.litegrid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
