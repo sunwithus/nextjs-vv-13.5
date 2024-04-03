@@ -1,34 +1,54 @@
-import type { PropsWithChildren } from 'react';
-import './style.css';
+import type { PropsWithChildren } from "react";
+
+const chordTest = {
+  chords: {
+    C: [
+      {
+        key: "C",
+        suffix: "major",
+        positions: [
+          {
+            frets: [-1, 3, 2, 0, 1, 0],
+            fingers: [0, 3, 2, 0, 1, 0],
+            baseFret: 1,
+            barres: [],
+            midi: [48, 52, 55, 60, 64],
+          },
+          {
+            frets: [-1, 1, 3, 3, 3, 1],
+            fingers: [0, 1, 2, 3, 4, 1],
+            barres: [1],
+            capo: true,
+            baseFret: 3,
+            midi: [48, 55, 60, 64, 67],
+          },
+          {
+            frets: [-1, -1, 1, 1, 1, 4],
+            fingers: [0, 0, 1, 1, 1, 4],
+            barres: [1],
+            baseFret: 5,
+            midi: [55, 60, 64, 72],
+          },
+          {
+            frets: [1, 3, 3, 2, 1, 1],
+            fingers: [1, 3, 4, 2, 1, 1],
+            barres: [1],
+            capo: true,
+            baseFret: 8,
+            midi: [48, 55, 60, 64, 67, 72],
+          },
+        ],
+      },
+    ],
+  },
+};
 
 export default function NewsLayout({ children }: PropsWithChildren<unknown>) {
   return (
     <>
-      <div className="mt-24"> </div>
-      <div className="container">
-        <h1>Guitar Chords</h1>
-        <ul className="pl-3 flex flex-wrap">
-          <li className="font-bold p-1">Keys:</li>
-          <li className="mr-3">
-            <a className="bg-blue-500 text-white hover:bg-blue-500 hover:border-blue-200 inline-block border font-bold rounded py-1 px-3" href="/react-chords/guitar" aria-current="page">
-              All
-            </a>
-          </li>
-          <li className="mr-3">
-            <a className="border-white text-blue-500 hover:border-gray-200 hover:bg-gray-200 inline-block border font-bold rounded py-1 px-3" href="/react-chords/guitar/C">
-              C
-            </a>
-          </li>
-          <li className="mr-3">
-            <a className="border-white text-blue-500 hover:border-gray-200 hover:bg-gray-200 inline-block border font-bold rounded py-1 px-3" href="/react-chords/guitar/Csharp">
-              C#
-            </a>
-          </li>
-        </ul>
-        <div className="w-full">
-          <div className="litegrid">{children}</div>
-        </div>
-      </div>
+      <div className="mt-24"></div>
+      <h1>Guitar Chords</h1>
+      <div>{children}</div>
     </>
   );
 }
