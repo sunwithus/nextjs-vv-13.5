@@ -7,6 +7,7 @@ const instrument = guitarData.main;
 instrument.tunings = guitarData.tunings;
 
 const chords = guitarData.chords;
+//console.log(chords.C[0].suffix);
 const allChords = Object.keys(chords); /* C, C#, D...*/
 
 const KeyList = () => {
@@ -42,24 +43,28 @@ const KeyList = () => {
   );
 };
 
-const SuffixesList = (chordName: any) => {
+const SuffixesList = (props: any) => {
+  //chords.C[0].suffix
+  const chordName = props.chord;
+  //console.log(chords[chordName][0].suffix);
+  //console.log(chords[chordName]);
+  const chordData = chords[chordName] ? chords[chordName] : null;
+
   return (
     <>
       <ul className="pl-3">
         <li className="text-xl p-1">Suffixes:</li>
-        {/* 
-      {allChords[chordName].map((element) => (
-     
-      <li key={element.suffix} className="mr-3 block">
-        <Link
-          className="text-blue-500 font-bold hover:text-grey-800 py-1 px-3"
-          href={`/react-chords/guitar/${element.suffix}`}
-        >
-          {element.suffix}
-        </Link>
-      </li>
-    ))}
-    */}
+        {chordData.map((elem) => (
+          <li key={elem.suffix} className="mr-3 block">
+            <Link
+              className="text-blue-500 font-bold hover:text-grey-800 py-1 px-3"
+              href={`/react-chords/guitar/${chordName}/${elem.suffix}`}
+            >
+              {chordName}
+              {elem.suffix}
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );
@@ -99,8 +104,14 @@ export default function GuitarChords() {
     <>
       <KeyList />
       <br />
-      <SuffixesList chordName="D" />
-      <ChordList />
+      <div className="flex">
+        <div>
+          <SuffixesList chord="B" />
+        </div>
+        <div>
+          <ChordList />
+        </div>
+      </div>
     </>
   );
 }
