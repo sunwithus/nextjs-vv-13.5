@@ -23,21 +23,17 @@ const KeyList = () => {
             All
           </Link>
         </li>
-        {allChords.map(
-          (element) => (
-            (element = element.replace("sharp", `#`)),
-            (
-              <li key={element} className="mr-3">
-                <Link
-                  className="border-white text-blue-500 hover:border-gray-200 hover:bg-gray-200 inline-block border font-bold rounded py-1 px-3"
-                  href={`/react-chords/guitar/${element}`}
-                >
-                  {element}
-                </Link>
-              </li>
-            )
-          )
-        )}
+        {allChords.map((element) => (
+          /*(element = element.replace("sharp", `#`)),*/
+          <li key={element} className="mr-3">
+            <Link
+              className="border-white text-blue-500 hover:border-gray-200 hover:bg-gray-200 inline-block border font-bold rounded py-1 px-3"
+              href={`/react-chords/guitar/${element}`}
+            >
+              {element.replace("sharp", `#`)}
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );
