@@ -22,7 +22,7 @@ const Header = () => {
     { name: 'Новости', href: '/news', current: false },
     { name: 'Биография', href: '/biography', current: false },
     { name: 'Фильмы', href: '/films', current: false },
-    { name: 'db Accords', href: '/db', current: false },
+    { name: 'Список аккордов', href: '/guitar-chords-db/', current: false },
   ]);
 
   // Функция для обновления текущего элемента в навигации
