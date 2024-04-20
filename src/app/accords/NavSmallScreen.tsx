@@ -13,7 +13,7 @@ const NavSmallScreen = ({ children }: { children: React.ReactNode }) => {
           <Menu onClick={() => setToggled(!toggled)}>{toggled ? children : ''}</Menu>
         </Sidebar>
         <div className="z-10 w-full -ml-2 p-3 bg-gray-300 fixed top-16">
-          <button className="text-xl h-full w-full block " onClick={() => setToggled(!toggled)}>
+          <button className="text-2xl h-full w-full block " onClick={() => setToggled(!toggled)}>
             <div>&equiv;</div>
           </button>
         </div>

@@ -19,15 +19,18 @@ const ChordList: React.FC<ChordListProps> = ({ chords, allChords }) => {
   return (
     <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12">
       {allChords.map((chordName) =>
-        chords[chordName].map(({ key, suffix, positions }, index) => (
-          <Link key={index} href={`/guitar-chords-db/${key}/${suffix}`} passHref>
-            <p className="text-lg text-center hover:text-blue-500">
-              {key}
-              <span>{suffix === 'minor' ? 'm' : suffix === 'major' ? '' : suffix}</span>
-            </p>
-            <Chord key={index} chord={positions[0]} instrument={instrument} />
-          </Link>
-        ))
+        chords[chordName]
+          .filter((chord) => chord.key === chordName)
+          .map(({ key, suffix, positions }, index) => (
+            //chords[chordName].map(({ key, suffix, positions }, index) => (
+            <Link key={index} href={`/guitar-chords-db/${key}/${suffix}`}>
+              <p className="text-lg text-center hover:text-blue-500">
+                {key}
+                <span>{suffix === 'minor' ? 'm' : suffix === 'major' ? '' : suffix}</span>
+              </p>
+              <Chord key={index} chord={positions[0]} instrument={instrument} />
+            </Link>
+          ))
       )}
     </div>
   );
