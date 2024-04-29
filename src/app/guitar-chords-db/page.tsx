@@ -23,9 +23,9 @@ export default function GuitarChords() {
       <KeyList allChords={allChords} onClickKeyChord={(chord) => setChordName(chord)} />
       <br />
       <div className="flex">
-        <div>
+        {/*<div>
           <SuffixesList chords={chords} chordName={chordName} />
-        </div>
+        </div>*/}
         <div>
           <ChordList chords={chords as any} allChords={allChords as string[]} chordName={chordName} />
         </div>
