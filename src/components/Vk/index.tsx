@@ -1,7 +1,19 @@
-"use client";
-import React, { useEffect } from "react";
+'use client';
+import React, { useEffect } from 'react';
+import VK, { Group } from 'react-vk';
 
 const VKontakteWidget = () => {
+  return (
+    <VK>
+      <Group groupId={80097286} />
+    </VK>
+  );
+};
+
+export default VKontakteWidget;
+
+/*
+
   useEffect(() => {
     if (typeof VK !== "undefined") {
       VK.Widgets.Group(
@@ -21,6 +33,5 @@ const VKontakteWidget = () => {
   }, []);
 
   return <div id="vk_groups"></div>;
-};
 
-export default VKontakteWidget;
+*/

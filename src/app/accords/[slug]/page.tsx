@@ -3,6 +3,7 @@ import { fetchApiPOST, getAllAccordPages } from '@/components/Api';
 
 import VkComments from '@/components/Vk/VkComments';
 
+
 /*
 https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 
@@ -46,6 +47,7 @@ async function getPage(params: { slug: string }) {
 }
 
 export default async function PageDetails({ params }: { params: { slug: string } }) {
+
   const page = await getPage(params);
   const content = page.content.replace(/<\/sup> <sup>/g, '</sup><span>&nbsp;</span><sup>'); /*при width: 0px; элементы sup сливаются в один, накладываются, убираем наложение*/
 

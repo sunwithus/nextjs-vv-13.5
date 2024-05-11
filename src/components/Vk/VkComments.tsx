@@ -1,13 +1,11 @@
 'use client';
 import React, { useEffect } from 'react';
 
-/* 
-
-Чтобы обновить виджеты VK при каждом переходе на странице, нужно добавить код, который будет отключать и повторно инициализировать виджеты VK при размонтировании компонента. 
-
-*/
+import { useRouter, usePathname } from 'next/navigation';
 
 const VkComments = () => {
+  const router = useRouter();
+  const pathName = usePathname();
   /**
  * useEffect с пустым массивом зависимостей [] вызывает переданный callback только при монтировании компонента и только один раз. При размонтировании компонента будет вызван возвращаемый callback, в котором происходит уничтожение виджета комментариев.
 
@@ -22,8 +20,8 @@ const VkComments = () => {
         apiId: 4690424,
         onlyWidgets: true,
       });
-      VK.Widgets.Comments('vk_comments', { limit: 15 });
-      VK.Widgets.Like('vk_like');
+      VK.Widgets.Comments('vk_comments', { limit: 15, pageUrl: pathName });
+      VK.Widgets.Like('vk_like', { pageUrl: pathName });
 
       return () => {
         if (isMounted) {
@@ -40,7 +38,7 @@ const VkComments = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [pathName]);
 
   return (
     <>
@@ -52,3 +50,28 @@ const VkComments = () => {
 };
 
 export default VkComments;
+
+/*
+'use client';
+import React, { useEffect } from 'react';
+import VK, { Comments, Like } from 'react-vk';
+
+const handleNewComment = (num, last_comment, date, sign) => {
+  console.log(last_comment);
+};
+
+const VkComments = () => {
+  return (
+    <VK apiId={4690424}>
+      <Like
+        onLike={(quantity) => {
+          console.log(quantity);
+        }}
+      />
+      <Comments onNewComment={handleNewComment} />
+    </VK>
+  );
+};
+
+export default VkComments;
+*/
