@@ -24,7 +24,7 @@ export default function AccordsLayout({ children }: PropsWithChildren<unknown>) 
             <NavLinks /> {/* server component */}
           </NavSmallScreen>
 
-          <div className={`accords w-11/12 lg:w-[480px] xl:w-[640px] sm:w-full pt-6 pb-6 pl-2 md:pl-10 font-normal text-gray-700 dark:text-gray-400 ${styles.accords}`}>{children}</div>
+          <div className={`accords w-11/12 lg:w-[520px] xl:w-[640px] sm:w-full pt-6 pb-6 pl-2 md:pl-10 font-normal text-gray-700 dark:text-gray-400 ${styles.accords}`}>{children}</div>
         </div>
         <div className="pl-4 lg:mx-2 mx-auto pt-8 w-56">
           <div className="w-52">
