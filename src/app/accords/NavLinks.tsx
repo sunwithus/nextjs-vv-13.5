@@ -16,11 +16,11 @@ export default async function NavLinks() {
   return (
     <>
       <aside className={`sticky h-screen sm:w-64 md:w-80 top-12 z-40 pb-4 ${styles.smallertext} `} aria-label="Sidebar">
-        <div className="h-full pt-4 overflow-y-auto overflow-x-hidden bg-gray-150 dark:bg-gray-800">
+        <div className="h-full pt-2 overflow-y-auto overflow-x-hidden bg-gray-150 dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
-            <li>
-              <Link href="/accords" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <Image width="32" height="32" className="h-8 w-auto" src="/images/player.svg" alt="Playlist" />
+            <li className="h-12">
+              <Link href="/accords/playlist" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <Image width="16" height="16" className="h-5 w-auto" src="/images/player.svg" alt="Playlist" />
                 <span className="ms-3">Послушать плейлист</span>
               </Link>
             </li>

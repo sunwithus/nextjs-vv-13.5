@@ -21,16 +21,16 @@ const VkComments = () => {
         onlyWidgets: true,
       });
       VK.Widgets.Comments('vk_comments', { limit: 15, pageUrl: pathName });
-      VK.Widgets.Like('vk_like', { pageUrl: pathName });
+      //VK.Widgets.Like('vk_like', { type: 'mini', height: 22 /*, pageUrl: pathName */ });
 
       return () => {
         if (isMounted) {
           if (VK.Widgets && VK.Widgets.comments) {
             VK.Widgets.destroy('vk_comments');
-          }
+          }/*
           if (VK.Widgets && VK.Widgets.likes) {
             VK.Widgets.destroy('vk_like');
-          }
+          }*/
         }
       };
     }
@@ -42,8 +42,8 @@ const VkComments = () => {
 
   return (
     <>
-      <div id="vk_like"></div>
-      <br />
+      {/*<div id="vk_like"></div>
+      <br />*/}
       <div id="vk_comments"></div>
     </>
   );
